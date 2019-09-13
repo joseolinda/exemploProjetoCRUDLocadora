@@ -16,10 +16,12 @@ class Deletar {
     }
 
     private function apagar() {
-        $bd = $this->banco;
-        $sql = "DELETE FROM {$this->tabela} where {$this->tabela}_id = {$this->elemento} ";
+        $bd   = $this->banco;
+        $sql  = "SET FOREIGN_KEY_CHECKS = 0;"; // Desativar verificação de chaves
+        $sql .= "DELETE FROM {$this->tabela} where {$this->tabela}_id = {$this->elemento};";
+        $sql .= " SET FOREIGN_KEY_CHECKS = 1; "; // Reativar verificação de chaves
 
-        $consulta = $bd->prepare($sql);
+        $consulta  = $bd->prepare($sql);
         $resultado = $consulta->execute();
 
         if( $resultado ) {
