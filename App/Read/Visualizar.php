@@ -3,7 +3,7 @@ namespace App\Read;
 
 use DB\Conexao as DB;
 
-class Listar
+class Visualizar
 {
     private $tabela;
     private $banco;

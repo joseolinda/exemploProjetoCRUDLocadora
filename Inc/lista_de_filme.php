@@ -1,8 +1,8 @@
 <?php
 
-use App\Read\Listar;
+use App\Read\Visualizar;
 
-$listaDeFilmes = new Listar("Filme");
+$listaDeFilmes = new Visualizar("Filme");
 $filmes = $listaDeFilmes->buscarFilmes(1);
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $filmes = $listaDeFilmes->buscarFilmes(1);
         echo "<td>{$filme['classificacao']}</td>";
         echo "<td>{$filme['recursos_especiais']}</td>";
         echo "<td>";
-        echo '<a href="excluir.php?p=filme&id='.$filme['filme_id'].'" />Excluir</a>';
+        echo '<a href="excluir.php?p=filme&id='.$filme['filme_id'].'&acao=apagar" />Excluir</a>';
         echo '&nbsp;&nbsp;';
         echo '<a href="editar.php?p=filme&id='.$filme['filme_id'].'" />editar</a>';
         echo "</td>";
